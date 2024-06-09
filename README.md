@@ -11,6 +11,8 @@ The company requires a software solution that can accurately calculate the numbe
 Takes the diameter of the circular pool (in meters) and the dimensions of the square tiles (in centimeters) as inputs.
 
 Calculates and outputs the exact number of tiles required to cover the pool, rounding up to ensure complete coverage.
+CODE:
+
 import math
 
 d, t = map(int, input().split())
@@ -31,8 +33,13 @@ else:
 #2.Given an integer n, print true if it is a power of four. Otherwise, print false.
 
 An integer n is a power of four, if there exists an integer x such that n == 4x.
+
+CODE:
+
 n=int(input())
+
 print(n>0 and (n&(n-1))==0 and (n&0x55555555)!=0)
+
 #3.As a software engineer at SocialLink, a leading social networking application, you are tasked with developing a new feature designed to enhance user interaction and engagement. The company aims to introduce a system where users can form connections based on shared interests and activities. One of the feature's components involves analyzing pairs of users based on the activities they've participated in, specifically looking at the numerical difference in the number of activities each user has participated in.
 
 Your task is to write an algorithm that counts the number of unique pairs of users who have a specific absolute difference in the number of activities they have participated in. This algorithm will serve as the backbone for a larger feature that recommends user connections based on shared participation patterns.
@@ -66,17 +73,27 @@ Constraints:
 -104 ≤ nums[i] ≤ 104
 
 0 ≤ k ≤ 104
+
 CODE :
+
 i=int(input())
+
 j=input().split(" ")
+
 k=int(input())
+
 c=0
+
 for t in range(i):
  
  for a in range(t+1,i):
+ 
   if abs(int(j[t])-int(j[a]))==k:
+   
    c+=1
+
 print(c)
+
 #4.Raghu owns a shoe shop with a varying inventory of shoe sizes. The shop caters to multiple customers who have specific size requirements and are willing to pay a designated amount for their desired shoe size. Raghu needs an efficient system to manage his inventory and calculate the total revenue generated from sales based on customer demands.
 
 
@@ -120,26 +137,39 @@ Shoe sizes will be positive integers typically ranging between 1 and 30.
 The price offered by customers will be a positive integer, typically ranging from $5 to $100 per shoe.
 
 CODE:
+
 X = int(input())
+
 shoe_sizes = list(map(int, input().split()))
+
 inventory = {}
 
 for size in shoe_sizes:
+  
     if size in inventory:
+      
         inventory[size] += 1
+ 
     else:
+       
         inventory[size] = 1
 
 N = int(input())
+
 total_revenue = 0
 
 for _ in range(N):
+    
     size, price = map(int, input().split())
+    
     if size in inventory and inventory[size] > 0:
+        
         total_revenue += price
+        
         inventory[size] -= 1
 
 print(total_revenue)
+
 #5.Rose manages a personal library with a diverse collection of books. To streamline her library management, she needs a program that can categorize books based on their genres, making it easier to find and organize her collection.
 
 
@@ -175,26 +205,41 @@ Book titles can vary in length but will not exceed 100 characters.
 Genres will not exceed 50 characters.
 
 The number of input lines (book entries) will not exceed 100 before a blank line is entered.
+
+CODE:
+
 def cat_books():
+    
     genres = {}
 
     while True:
+      
         try:
+           
             ln = input().strip()
+          
             if ln == "":
                 raise EOFError
+          
             b, g = ln.split(', ')
             
             if g not in genres:
+              
                 genres[g] = []
+          
             genres[g].append(b)
         
         except EOFError:
+            
             for g in genres:
+               
                 bs = ', '.join(genres[g])
+               
                 print(f"{g}: {bs}")
+           
             break
 
 if __name__ == "__main__":
+    
     cat_books()
 
